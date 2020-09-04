@@ -1,4 +1,4 @@
-module reco-infra
+module github.com/chittaranjan-discovery/reco-infra
 
 go 1.14
 
