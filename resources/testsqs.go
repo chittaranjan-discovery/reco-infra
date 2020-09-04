@@ -1,4 +1,4 @@
-package modules
+package resources
 
 import (
 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sqs"

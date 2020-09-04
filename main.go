@@ -19,7 +19,7 @@ func main() {
 		ctx.Export("bucketName", bucket.ID())
 
 		// Setup SQS queue
-		q, err := modules.SetupSQS(ctx, "test-chitta-queue", modules.DelaySeconds, modules.MaxMessageSize, modules.MessageRetentionSeconds, modules.ReceiveWaitTimeSeconds, modules.VisibilityTimeoutSeconds)
+		q, err := resources.SetupSQS(ctx, "test-chitta-queue", modules.DelaySeconds, modules.MaxMessageSize, modules.MessageRetentionSeconds, modules.ReceiveWaitTimeSeconds, modules.VisibilityTimeoutSeconds)
 		if err != nil {
 			return err
 		}
