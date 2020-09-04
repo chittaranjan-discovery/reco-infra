@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/chittaranjan-discovery/reco-infra/modules"
 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
-	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sqs"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -18,11 +18,11 @@ func main() {
 		// Export the name of the bucket
 		ctx.Export("bucketName", bucket.ID())
 
-	// Setup SQS queue
-	q, err := modules.SetupSQS(ctx, "test-chitta-queue", modules.DelaySeconds, modules.MaxMessageSize, modules.MessageRetentionSeconds, modules.ReceiveWaitTimeSeconds, modules.VisibilityTimeoutSeconds)
-	if err != nil {
-		return errors.Wrap(err, "creating SQS")
-	}
+		// Setup SQS queue
+		q, err := modules.SetupSQS(ctx, "test-chitta-queue", modules.DelaySeconds, modules.MaxMessageSize, modules.MessageRetentionSeconds, modules.ReceiveWaitTimeSeconds, modules.VisibilityTimeoutSeconds)
+		if err != nil {
+			return err
+		}
 		return nil
 	})
 }
