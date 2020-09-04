@@ -7,7 +7,7 @@ import (
 
 // SetupSQS create a SQS queue.
 func SetupSQS(ctx *pulumi.Context, name string, delaySeconds int, maxMessageSize int, messageRetentionSeconds int, receiveWaitTimeSeconds int, visibilityTimeoutSeconds int) (*sqs.Queue, error) {
-	q := CreateRecoResourceName(ctx, name)
+	//q := CreateRecoResourceName(ctx, name)
 	return sqs.NewQueue(ctx, q, &sqs.QueueArgs{
 		DelaySeconds:             pulumi.Int(delaySeconds),
 		MaxMessageSize:           pulumi.Int(maxMessageSize),
